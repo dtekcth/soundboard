@@ -14,7 +14,7 @@ export default {
   },
   data: function() {
     return {
-      files: require("./assets/all.json")
+      files: require("../public/all.json")
     }
   }
 }

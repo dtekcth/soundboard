@@ -8,21 +8,19 @@
 
 export default {
   name: 'SoundButton',
+  data: function() {
+    return {
+      publicPath: process.env.BASE_URL,
+    }
+  },
   props: {
     soundPath: String,
     name: String
   },
   methods: {
     makeSound: function() {
-      var sound = new Audio("./assets/" + this.soundPath);
-      sound.play().then(() => {
-        //eslint-disable-next-line
-        console.log("success!");
-      }).catch((err) => {
-        //eslint-disable-next-line
-        console.log(err.msg);
-        throw new Error(err);
-      });
+      var sound = new Audio(this.publicPath + this.soundPath);
+      sound.play();
     }
   }
 }
