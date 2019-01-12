@@ -1,28 +1,36 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <SoundButton v-for="(sound, index) in files" v-bind:id="index" :key="index" v-bind:soundPath="sound[0]" v-bind:name="sound[1]" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import SoundButton from './components/SoundButton.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    SoundButton
+  },
+  data: function() {
+    return {
+      files: require("./assets/all.json")
+    }
   }
 }
 </script>
 
 <style>
+body {
+  margin: 0 !important;
+}
+
 #app {
+  width: 100vw;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
