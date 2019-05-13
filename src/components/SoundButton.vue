@@ -8,6 +8,18 @@
 
 export default {
   name: 'SoundButton',
+  created() {
+    window.addEventListener('keydown', (e) => {
+      const key = '1234567890qwertyuiopasdfghjklzxcvbnm'
+        .split('')
+        .indexOf(e.key)
+
+      if (!e.ctrlKey && !e.altKey && key === this.soundId) {
+        e.preventDefault();
+        this.makeSound();
+      }
+    });
+  },
   data: function() {
     return {
       publicPath: process.env.BASE_URL,
@@ -15,7 +27,8 @@ export default {
   },
   props: {
     soundPath: String,
-    name: String
+    name: String,
+    soundId: Number,
   },
   methods: {
     makeSound: function() {

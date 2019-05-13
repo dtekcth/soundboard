@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <SoundButton v-for="(sound, index) in files" v-bind:id="index" :key="index" v-bind:soundPath="sound[0]" v-bind:name="sound[1]" />
+    <SoundButton v-for="(sound, index) in files" v-bind:soundId="index" :key="index" v-bind:soundPath="sound[0]" v-bind:name="sound[1]" />
   </div>
 </template>
 
