@@ -1,0 +1,7 @@
+version: "3.7"
+services:
+  soundboard:
+    build: .
+    image: dtek/soundboard:latest
+    ports:
+      - 4003:8080
