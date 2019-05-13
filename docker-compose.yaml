@@ -3,5 +3,6 @@ services:
   soundboard:
     build: .
     image: dtek/soundboard:latest
+    container_name: soundboard
     ports:
       - 4003:8080
