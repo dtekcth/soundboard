@@ -10,7 +10,7 @@ RUN npm run lint && npm run build
 
 RUN npm install -g http-server
 
-ENV PORT 8000
+ENV PORT 8080
 EXPOSE $PORT
 
-CMD http-server dist -p "$PORT" -d false -i false
+CMD http-server dist -p "$PORT" -d false
