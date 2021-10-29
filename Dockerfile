@@ -1,12 +1,16 @@
 FROM node:lts-alpine
 
-RUN npm install -g http-server
 WORKDIR /app
 
-COPY . .
-
+COPY package*.json ./
 RUN npm ci
-RUN npm run build
 
-EXPOSE 8080
-CMD [ "http-server", "dist" ]
+COPY . .
+RUN npm run lint && npm run build
+
+RUN npm install -g http-server
+
+ENV PORT 8000
+EXPOSE $PORT
+
+CMD http-server dist -p "$PORT" -d false -i false
