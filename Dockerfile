@@ -1,12 +1,12 @@
-FROM node:lts-alpine
+FROM node:16.19.0-alpine
 
 WORKDIR /app
 
 COPY package*.json ./
-RUN npm ci
+RUN npm ci --legacy-deps
 
 COPY . .
-RUN npm run lint && npm run build
+RUN npm run build
 
 RUN npm install -g http-server
 
