@@ -1,4 +1,4 @@
-FROM node:25-alpine
+FROM node:25-alpine AS build
 
 WORKDIR /app
 
@@ -8,9 +8,5 @@ RUN npm ci --legacy-deps
 COPY . .
 RUN npm run build
 
-RUN npm install -g http-server
-
-ENV PORT 8080
-EXPOSE $PORT
-
-CMD http-server dist -p "$PORT" -d false
+FROM nginx:1.30.0-alpine
+COPY --from=build /app/dist /usr/share/nginx/html
