@@ -7,6 +7,7 @@
 
 <script>
 import SoundButton from './components/SoundButton.vue'
+import files from './all.json'
 
 export default {
   name: 'app',
@@ -18,7 +19,7 @@ export default {
   },
   data: function() {
     return {
-      files: require("../public/all.json")
+      files
     }
   }
 }
