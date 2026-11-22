@@ -8,5 +8,5 @@ RUN npm ci --legacy-deps
 COPY . .
 RUN npm run build
 
-FROM nginx:1.31.9-alpine@sha256:0713660ff64e819a478be0d69ae314e52d21623c93672edd9f381a6e66fd95ff
+FROM nginx:1.31.9-alpine@sha256:fb4658584bd9a916ffb6f6e365f97c25cfdb2923801f551ea08356e695f14ff7
 COPY --from=build /app/dist /usr/share/nginx/html
